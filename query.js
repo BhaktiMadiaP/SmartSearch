@@ -1,3 +1,4 @@
+var src
 function getParamValue(paramName) {
     console.log("using href",window.location.href);
     console.log("using location",window.location.search);
@@ -21,40 +22,46 @@ function getParamValue(paramName) {
             return pArr[1]; //return value
     }
 }
+function addCode(src) {
+    document.getElementById("search-block").innerHTML += 
+      "<embed id=\"property\" src=`${src}` style=\"width: 100%; height: 3000px;\" type=\"text/html\">";
+      console.log("code added")
+}
 sQuery = getParamValue('sQuery');
 console.log("Query Params",sQuery);
 pId = getParamValue('pId');
 // console.log("Pid", pId);
-var url = document.getElementById("property").src;
+// var url = document.getElementById("property").src;
 // console.log(" URLL",url);
-var embedUrl = document.getElementById("property");
+// var embedUrl = document.getElementById("property");
+
+var url ="https://colive-search-system-dev.web.app/smartsearch?redirectHost=https://www.google.com&amp;isMobile=0"
 // console.log("Embed URL", embedUrl)
 if (sQuery) {
     if (pId) {
         let src = url + '&sQuery=' + sQuery + '&pId=' + pId;
-        embedUrl.setAttribute('src', src);
+        // embedUrl.setAttribute('src', src);
+        addCode(src);
     }
     else {
         let src = url + '&sQuery=' + sQuery;
-        embedUrl.setAttribute('src', src);
+        // embedUrl.setAttribute('src', src);
+        addCode(src);
     }
     console.log("If Search Queryyyy", document.getElementById("property"))
 } else {
     if (pId) {
         let src = url + '&pId=' + pId
-        embedUrl.setAttribute('src', src);
+        // embedUrl.setAttribute('src', src);
+        addCode(src);
     } else {
         let src = url + '&sQuery=pgs in marathalli'
-        embedUrl.setAttribute('src', src);
+        // embedUrl.setAttribute('src', src);
+        addCode(src);
     }
     console.log("If Noo Search Queryyyy", document.getElementById("property"))
 }
-function reload(){
-    var container = document.getElementById("property");
-    var content = container.innerHTML;
-    container.innerHTML= content; 
-    
-   //this line is to watch the result in console , you can remove it later	
-    console.log("Refreshed"); 
-}
-reload();
+
+
+// https://colive-search-system-dev.web.app/smartsearch?redirectHost=https://www.google.com&amp;isMobile=0&amp;nQuery=pg" style="width: 100%; height: 3000px" type="text/html"
+
