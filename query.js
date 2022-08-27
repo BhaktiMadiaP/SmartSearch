@@ -49,3 +49,12 @@ if (sQuery) {
     }
     console.log("If Noo Search Queryyyy", document.getElementById("property"))
 }
+function reload(){
+    var container = document.getElementById("property");
+    var content = container.innerHTML;
+    container.innerHTML= content; 
+    
+   //this line is to watch the result in console , you can remove it later	
+    console.log("Refreshed"); 
+}
+reload();
