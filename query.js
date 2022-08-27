@@ -24,7 +24,7 @@ function getParamValue(paramName) {
 }
 function addCode(src) {
     document.getElementById("search-block").innerHTML += 
-      "<embed id=\"property\" src=`${src}` style=\"width: 100%; height: 3000px;\" type=\"text/html\">";
+      "<embed id=\"property\" src=\""+src+"\" style=\"width: 100%; height: 3000px;\" type=\"text/html\">";
       console.log("code added")
 }
 sQuery = getParamValue('sQuery');
